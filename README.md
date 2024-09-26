@@ -17,6 +17,7 @@ This Java-JAX-RS project implements a RESTful web service for managing employees
 
 - Java Development Kit (JDK) 8 or higher
 - Apache Maven
+- Apache Tomcat
 - MySQL Database
 - IDE (e.g., IntelliJ IDEA, Eclipse)
 
