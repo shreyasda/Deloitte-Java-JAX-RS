@@ -1,9 +1,9 @@
 
-# Java-JAX-RS Project
+# Java-JAX-RS Employee Management System
 
 ## Overview
 
-Java-JAX-RS is a project that implements a RESTful web service using the Java API for RESTful Web Services (JAX-RS). This project demonstrates how to build a simple RESTful API that communicates with a MySQL database.
+This Java-JAX-RS project implements a RESTful web service for managing employees and departments in a simple employee management system. It showcases fundamental RESTful API principles, including CRUD (Create, Read, Update, Delete) operations for both entities, and integrates with a MySQL database for data storage and retrieval.
 
 ## Features
 
@@ -60,15 +60,23 @@ Run the application using your IDE or by executing the following command:
 mvn spring-boot:run
 ```
 
-### 6. Testing the API
+### 6. Testing the API using Insomnia/Postman
 
 You can test the API endpoints using Insomnia or any other API testing tool. Below are the sample endpoints:
 
-- **GET /api/items** - Retrieve all items
-- **POST /api/items** - Create a new item
-- **GET /api/items/{id}** - Retrieve a specific item by ID
-- **PUT /api/items/{id}** - Update an item by ID
-- **DELETE /api/items/{id}** - Delete an item by ID
+#### Department Endpoints
+- **GET /departments** - Retrieves a list of all departments.
+- **POST /departments** - Creates a new department.
+- **GET /departments/{id}** - Retrieves a specific department by its unique ID.
+- **PUT /departments/{id}** - Updates the details of a specific department.
+- **DELETE /departments/{id}** - Deletes a specific department by its unique ID.
+
+#### Employee Endpoints
+- **GET /employees** - Retrieves a list of all employees.
+- **POST /employees** - Creates a new employee.
+- **GET /employees/{id}** - Retrieves a specific employee by their unique ID.
+- **PUT /employees/{id}** - Updates the details of a specific employee.
+- **DELETE /employees/{id}** - Deletes a specific employee by their unique ID.
 
 ## Contributing
 
