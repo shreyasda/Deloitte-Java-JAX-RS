@@ -1,8 +1,19 @@
 package com.deloitte.demo.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "emps")
 public class Employee {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@Column(name = "name")
 	private String firstName;
+	
+	@Column(name = "salary")
 	private double salary;
 
 	public Employee() {
