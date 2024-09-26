@@ -13,23 +13,27 @@ public class EmployeeRepository {
 	public Employee addEmployee(Employee employee) {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		try {
-            entityManager.getTransaction().begin();
-            employee = entityManager.merge(employee);
-            entityManager.getTransaction().commit();
-        } catch (Exception e) {
-            if (entityManager.getTransaction().isActive()) {
-                entityManager.getTransaction().rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            entityManager.close();
-        }
-        return employee;
+			entityManager.getTransaction().begin();
+			if (employee.getDepartment() != null) {
+				employee.setDepartment(entityManager.merge(employee.getDepartment()));
+			}
+			employee = entityManager.merge(employee);
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			if (entityManager.getTransaction().isActive()) {
+				entityManager.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
+		}
+		return employee;
 	}
 
 	public List<Employee> getAllEmployees() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		List<Employee> employees = entityManager.createQuery("SELECT e FROM Employee e", Employee.class).getResultList();
+		List<Employee> employees = entityManager.createQuery("SELECT e FROM Employee e", Employee.class)
+				.getResultList();
 		entityManager.close();
 		return employees;
 	}
@@ -42,37 +46,40 @@ public class EmployeeRepository {
 	}
 
 	public void updateEmployee(Employee employee) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            entityManager.merge(employee); 
-            entityManager.getTransaction().commit();
-        } catch (Exception e) {
-            if (entityManager.getTransaction().isActive()) {
-                entityManager.getTransaction().rollback(); 
-            }
-            e.printStackTrace(); 
-        } finally {
-            entityManager.close();
-        }
-    }
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		try {
+			entityManager.getTransaction().begin();
+			if (employee.getDepartment() != null) {
+				employee.setDepartment(entityManager.merge(employee.getDepartment()));
+			}
+			entityManager.merge(employee);
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			if (entityManager.getTransaction().isActive()) {
+				entityManager.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
+		}
+	}
 
 	public void deleteEmployee(int id) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            Employee employee = entityManager.find(Employee.class, id);
-            if (employee != null) {
-                entityManager.remove(employee);
-            }
-            entityManager.getTransaction().commit();
-        } catch (Exception e) {
-            if (entityManager.getTransaction().isActive()) {
-                entityManager.getTransaction().rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            entityManager.close();
-        }
-    }
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		try {
+			entityManager.getTransaction().begin();
+			Employee employee = entityManager.find(Employee.class, id);
+			if (employee != null) {
+				entityManager.remove(employee);
+			}
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			if (entityManager.getTransaction().isActive()) {
+				entityManager.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
+		}
+	}
 }

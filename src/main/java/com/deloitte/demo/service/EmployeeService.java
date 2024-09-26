@@ -9,6 +9,9 @@ public class EmployeeService {
 	private EmployeeRepository employeeRepository = new EmployeeRepository();
 
 	public Employee addEmployee(Employee employee) {
+		if (employee == null) {
+			throw new IllegalArgumentException("Employee cannot be null");
+		}
 		return employeeRepository.addEmployee(employee);
 	}
 
@@ -17,6 +20,9 @@ public class EmployeeService {
 	}
 
 	public Employee getEmployeeById(int id) {
+		if (id <= 0) {
+			throw new IllegalArgumentException("ID must be greater than 0");
+		}
 		return employeeRepository.getEmployeeById(id);
 	}
 
@@ -25,6 +31,9 @@ public class EmployeeService {
 	}
 
 	public void deleteEmployee(int id) {
+		if (id <= 0) {
+			throw new IllegalArgumentException("ID must be greater than 0");
+		}
 		employeeRepository.deleteEmployee(id);
 	}
 }
