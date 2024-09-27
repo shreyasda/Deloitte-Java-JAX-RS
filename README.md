@@ -26,10 +26,10 @@ This Java-JAX-RS project implements a RESTful web service for managing employees
 
 ### 1. Clone the Repository
 
-`bash
+```
 git clone https://github.com/shreyasda/java-jax-rs.git
 cd java-jax-rs
-`
+```
 
 ### 2. Set Up MySQL Database
 
@@ -40,27 +40,27 @@ cd java-jax-rs
 
 - Update the database connection settings in the \`src/main/resources/application.properties\` file:
 
-`properties
+```properties
 db.url=jdbc:mysql://localhost:3306/your_database
 db.username=your_username
 db.password=your_password
-`
+```
 
 ### 4. Build the Project
 
 Use Maven to build the project:
 
-`bash
+```
 mvn clean install
-`
+```
 
 ### 5. Run the Application
 
 Run the application using your IDE or by executing the following command:
 
-`bash
+```
 mvn spring-boot:run
-`
+```
 
 ### 6. Testing the API using Insomnia/Postman
 
