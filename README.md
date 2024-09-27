@@ -12,6 +12,7 @@ This Java-JAX-RS project implements a RESTful web service for managing employees
 - Basic CRUD operations
 - Simple JSON responses
 - Testing with Insomnia
+- **Simple frontend for adding and viewing employees**: There is a basic frontend that can be accessed through [this repository](https://github.com/shreyasda/Deloitte-HTML-CSS-JS/tree/master/frontend).
 
 ## Prerequisites
 
@@ -25,41 +26,41 @@ This Java-JAX-RS project implements a RESTful web service for managing employees
 
 ### 1. Clone the Repository
 
-```bash
-git clone https://github.com/yourusername/java-jax-rs.git
+`bash
+git clone https://github.com/shreyasda/java-jax-rs.git
 cd java-jax-rs
-```
+`
 
 ### 2. Set Up MySQL Database
 
 - Create a MySQL database and user.
-- Run the SQL script located in the `sql` folder to set up the database schema.
+- Run the SQL script located in the \`sql\` folder to set up the database schema.
 
 ### 3. Configure Database Connection
 
-- Update the database connection settings in the `src/main/resources/application.properties` file:
+- Update the database connection settings in the \`src/main/resources/application.properties\` file:
 
-```properties
+`properties
 db.url=jdbc:mysql://localhost:3306/your_database
 db.username=your_username
 db.password=your_password
-```
+`
 
 ### 4. Build the Project
 
 Use Maven to build the project:
 
-```bash
+`bash
 mvn clean install
-```
+`
 
 ### 5. Run the Application
 
 Run the application using your IDE or by executing the following command:
 
-```bash
+`bash
 mvn spring-boot:run
-```
+`
 
 ### 6. Testing the API using Insomnia/Postman
 
@@ -82,5 +83,3 @@ You can test the API endpoints using Insomnia or any other API testing tool. Bel
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
-
-
